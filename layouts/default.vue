@@ -9,7 +9,7 @@
             <div class="m-stack m-stack--ver m-stack--general">
               <div class="m-stack__item m-stack__item--middle m-brand__logo">
                 <a class="m-brand__logo-wrapper">
-                  <img alt="" src="@/assets/img/logo.png">
+                  <img alt="" src="@/assets/img/logo.png" style="height: 50px">
                 </a>  
               </div>
               <div class="m-stack__item m-stack__item--middle m-brand__tools"/>
@@ -71,21 +71,21 @@
                                         
               <div class="m-stack__item m-topbar__nav-wrapper">
                 <ul class="m-topbar__nav m-nav m-nav--inline">               
-                  <li class="m-nav__item m-nav__item--info m-nav__item--qs">
+                  <li class="m-nav__item m-nav__item--info">
                     <span class="m-nav__link">
                       <span class="m-nav__link-icon m-nav__link-icon-alt">
                         <span class="m-nav__link-icon-wrapper"><i class="flaticon-settings"/></span>
                       </span>
                     </span>
                   </li>  
-                  <li class="m-nav__item m-nav__item--info m-nav__item--qs">
+                  <li class="m-nav__item m-nav__item--info">
                     <span class="m-nav__link">
                       <span class="m-nav__link-icon m-nav__link-icon-alt">
                         <span class="m-nav__link-icon-wrapper"><i class="flaticon-web"/></span>
                       </span>
                     </span>
                   </li>  
-                  <li class="m-nav__item m-nav__item--info m-nav__item--qs">
+                  <li class="m-nav__item m-nav__item--info">
                     <span class="m-nav__link">
                       <span class="m-nav__link-icon m-nav__link-icon-alt">
                         <span class="m-nav__link-icon-wrapper"><i class="fa fa-power-off"/></span>
