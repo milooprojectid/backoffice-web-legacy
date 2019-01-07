@@ -25,7 +25,7 @@
                 </div>
               </div>
               <div class="m-login__form-action">
-                <button id="m_login_signin_submit" class="btn m-btn--gradient-from-warning m-btn--gradient-to-danger m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary btn-block">Sign In</button>
+                <button id="m_login_signin_submit" class="text-white btn m-btn--gradient-from-warning m-btn--gradient-to-danger m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary btn-block">Sign In</button>
               </div>
             </form>
           </div>
