@@ -1,61 +1,47 @@
 const pkg = require('./package')
 
 module.exports = {
-  mode: 'universal',
-
-  /*
-  ** Headers of the page
-  */
+  mode: 'spa',
   head: {
-    title: pkg.name,
+    title: 'Milo Backoffice',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no'
+      },
+      { hid: 'description', name: 'description', content: 'Milo Backoffice' }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/img/logo.png' }],
+    script: [
+      {
+        src: 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js'
+      },
+      { src: 'js/font.js' }
     ]
   },
 
-  /*
-  ** Customize the progress-bar color
-  */
   loading: { color: '#fff' },
 
-  /*
-  ** Global CSS
-  */
   css: [
+    '@/assets/vendors/vendors.bundle.css',
+    '@/assets/vendors/style.bundle.css'
   ],
 
-  /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-  ],
+  plugins: [],
 
-  /*
-  ** Nuxt.js modules
-  */
-  modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
-  ],
-  /*
-  ** Axios module configuration
-  */
+  modules: ['@nuxtjs/axios'],
+
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
-  /*
-  ** Build configuration
-  */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
+    vendors: [
+      '@/assets/vendors/vendors.bundle.js',
+      '@/assets/vendors/scripts.bundle.js'
+    ],
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
