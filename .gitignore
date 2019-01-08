@@ -58,6 +58,7 @@ typings/
 
 # dotenv environment variables file
 .env
+*.env
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -81,3 +82,5 @@ dist
 .idea
 
 .DS_STORE
+
+deployments/
