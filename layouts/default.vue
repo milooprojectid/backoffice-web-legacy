@@ -86,7 +86,7 @@
                   </li>  
                   <li class="m-nav__item m-nav__item--info">
                     <span class="m-nav__link">
-                      <span class="m-nav__link-icon m-nav__link-icon-alt">
+                      <span class="m-nav__link-icon m-nav__link-icon-alt" @click="logout">
                         <span class="m-nav__link-icon-wrapper"><i class="fa fa-power-off"/></span>
                       </span>
                     </span>
@@ -110,7 +110,7 @@
         </div>
       </div>
     </div>
-    
+    <notifications :max="10" group="event" position="bottom right" />
   </div>
 </template>
 
@@ -121,6 +121,11 @@ export default {
       class:
         'm--skin- m-content--skin-light m-header--fixed m-header--fixed-mobile m-aside-left--offcanvas-default m-aside-left--enabled m-aside-left--fixed m-aside-left--skin-dark m-aside--offcanvas-default'
     }
+  },
+  methods: {
+    async logout() {
+      await this.$store.dispatch('logout');
+    }
   }
-}
+};
 </script>

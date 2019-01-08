@@ -19,9 +19,9 @@
         <div class="row m-row--no-padding m-row--col-separator-xl">
           <div class="col-md-12 col-lg-6 col-xl-3">
             <info-box
+              :value="19"
               color="warning"
               title="Source"
-              value="19"
               desc="news sources registered"
               progress="50"
               progress-title="activated"
@@ -29,9 +29,9 @@
           </div>
           <div class="col-md-12 col-lg-6 col-xl-3">
             <info-box
+              :value="19"
               color="info"
               title="Link"
-              value="19"
               desc="links stored"
               progress="50"
               progress-title="crawled"
@@ -39,9 +39,9 @@
           </div>
           <div class="col-md-12 col-lg-6 col-xl-3">
             <info-box
+              :value="19"
               color="danger"
               title="Raw"
-              value="19"
               desc="raws stored"
               progress="50"
               progress-title="scrapped"
@@ -49,9 +49,9 @@
           </div>
           <div class="col-md-12 col-lg-6 col-xl-3">
             <info-box
+              :value="19"
               color="success"
               title="Corpus"
-              value="19"
               desc="corpuses stored"
               progress="50"
               progress-title="available"
@@ -284,12 +284,12 @@
 </template>
 
 <script>
-import InfoBox from '~/components/widgets/InfoBox'
+import InfoBox from '~/components/widgets/InfoBox';
 export default {
   components: {
     InfoBox
   }
-}
+};
 </script>
 
 <style>

@@ -1,7 +1,7 @@
 <script>
 export default {
   fetch({ params, redirect }) {
-    redirect(301, '/login')
+    redirect(301, '/login');
   }
-}
+};
 </script>

@@ -31,7 +31,8 @@
           </div>
         </div>	
       </div>
-    </div>				
+    </div>
+    <notifications :max="10" group="login" position="bottom center" />		
   </div>
 </template>
 
@@ -48,23 +49,23 @@ export default {
   methods: {
     login() {
       if (this.user.username && this.user.password) {
-        this.loading = true
+        this.loading = true;
         this.$http
           .post('/login', this.user)
           .then(res => {
-            this.$store.dispatch('login', res.data.content)
+            this.$store.dispatch('login', res.data.content);
           })
           .catch(err => {
-            this.loading = false
-            this.user.password = null
-            // this.$notify({
-            //   type: 'error',
-            //   title: 'Whoops',
-            //   text: 'invalid credential',
-            //   group: 'event',
-            //   width: 900
-            // })
-          })
+            this.loading = false;
+            this.user.password = null;
+            this.$notify({
+              type: 'error',
+              title: 'Whoops',
+              text: 'invalid credential',
+              group: 'event',
+              width: 900
+            });
+          });
       }
     }
   },
@@ -74,7 +75,7 @@ export default {
         'm--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default'
     }
   }
-}
+};
 </script>
 
 <style>
