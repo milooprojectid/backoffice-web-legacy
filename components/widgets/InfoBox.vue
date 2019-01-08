@@ -19,7 +19,7 @@
           {{ progressTitle }}
         </span>
         <span class="m-widget24__number">
-          {{ progress }}%
+          {{ progress.toFixed(1) }}%
         </span>
       </div>				      
     </div>

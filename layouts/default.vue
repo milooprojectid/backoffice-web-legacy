@@ -26,27 +26,42 @@
                   <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
                     <li class="m-menu__item m-menu__item--submenu m-menu__item--rel">
                       <a class="m-menu__link m-menu__toggle">
-                        <span class="m-menu__item-here"/><span class="m-menu__link-text">Dashboard</span>
+                        <span class="m-menu__item-here"/>
+                        <span class="m-menu__link-text">
+                          <nuxt-link tag="span" to="/dashboard" exact>Dashboard</nuxt-link>
+                        </span>
                       </a>
                     </li>
                     <li class="m-menu__item m-menu__item--submenu m-menu__item--rel">
                       <a class="m-menu__link m-menu__toggle">
-                        <span class="m-menu__item-here"/><span class="m-menu__link-text">Source</span>
+                        <span class="m-menu__item-here"/>
+                        <span class="m-menu__link-text">
+                          <nuxt-link tag="span" to="/source" exact>Source</nuxt-link>
+                        </span>
                       </a>
                     </li>
                     <li class="m-menu__item m-menu__item--submenu m-menu__item--rel">
                       <a class="m-menu__link m-menu__toggle">
-                        <span class="m-menu__item-here"/><span class="m-menu__link-text">Link</span>
+                        <span class="m-menu__item-here"/>
+                        <span class="m-menu__link-text">
+                          <nuxt-link tag="span" to="/link" exact>Link</nuxt-link>
+                        </span>
                       </a>
                     </li>
                     <li class="m-menu__item m-menu__item--submenu m-menu__item--rel">
                       <a class="m-menu__link m-menu__toggle">
-                        <span class="m-menu__item-here"/><span class="m-menu__link-text">Raw</span>
+                        <span class="m-menu__item-here"/>
+                        <span class="m-menu__link-text">
+                          <nuxt-link tag="span" to="/raw" exact>Raw</nuxt-link>
+                        </span>
                       </a>
                     </li>
                     <li class="m-menu__item m-menu__item--submenu m-menu__item--rel">
                       <a class="m-menu__link m-menu__toggle">
-                        <span class="m-menu__item-here"/><span class="m-menu__link-text">Corpus</span>
+                        <span class="m-menu__item-here"/>
+                        <span class="m-menu__link-text">
+                          <nuxt-link tag="span" to="/corpus" exact>Corpus</nuxt-link>
+                        </span>
                       </a>
                     </li>
                   </ul>
@@ -129,3 +144,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.nuxt-link-exact-active {
+  color: #feaf00;
+}
+</style>

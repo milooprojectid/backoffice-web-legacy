@@ -25,7 +25,10 @@
                 </div>
               </div>
               <div class="m-login__form-action">
-                <button id="m_login_signin_submit" class="text-white btn m-btn--gradient-from-warning m-btn--gradient-to-danger m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary btn-block" @click.prevent="login">Sign In</button>
+                <button id="m_login_signin_submit" class="text-white btn m-btn--gradient-from-warning m-btn--gradient-to-danger m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary btn-block" @click.prevent="login">
+                  Sign In
+                  <i v-show="loading" class="fa fa-spinner fa-pulse fa-fw"/>
+                </button>
               </div>
             </form>
           </div>
@@ -54,9 +57,7 @@ export default {
         this.$axios
           .post('/login', this.user)
           .then(res => {
-            setTimeout(() => {
-              this.$store.dispatch('login', res.data.content);
-            }, 2000);
+            this.$store.dispatch('login', res.data.content);
           })
           .catch(err => {
             this.loading = false;

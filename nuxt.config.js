@@ -22,7 +22,7 @@ module.exports = {
     ]
   },
 
-  loading: { color: '#fff' },
+  loading: { color: '#FEAF00' },
 
   css: [
     '@/assets/vendors/vendors.bundle.css',

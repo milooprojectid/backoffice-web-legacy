@@ -19,41 +19,41 @@
         <div class="row m-row--no-padding m-row--col-separator-xl">
           <div class="col-md-12 col-lg-6 col-xl-3">
             <info-box
-              :value="19"
+              :value="shorten(source.all)"
+              :progress="calculateProgress(source.all, source.active)"
               color="warning"
               title="Source"
               desc="news sources registered"
-              progress="50"
               progress-title="activated"
             />
           </div>
           <div class="col-md-12 col-lg-6 col-xl-3">
             <info-box
-              :value="19"
+              :value="shorten(link.all)"
+              :progress="calculateProgress(link.all, link.done)"
               color="info"
               title="Link"
               desc="links stored"
-              progress="50"
               progress-title="crawled"
             />
           </div>
           <div class="col-md-12 col-lg-6 col-xl-3">
             <info-box
-              :value="19"
+              :value="shorten(raw.all)"
+              :progress="calculateProgress(raw.all, raw.done)"
               color="danger"
               title="Raw"
               desc="raws stored"
-              progress="50"
               progress-title="scrapped"
             />
           </div>
           <div class="col-md-12 col-lg-6 col-xl-3">
             <info-box
-              :value="19"
+              :value="corpus.all"
+              :progress="corpus.all"
               color="success"
               title="Corpus"
               desc="corpuses stored"
-              progress="50"
               progress-title="available"
             />
           </div>
@@ -289,6 +289,61 @@ export default {
   middleware: 'authenticated',
   components: {
     InfoBox
+  },
+  data: () => ({
+    source: {
+      all: 0,
+      active: 0
+    },
+    link: {
+      all: 0,
+      done: 0
+    },
+    raw: {
+      all: 0,
+      done: 0
+    },
+    corpus: {
+      all: 0
+    }
+  }),
+  mounted() {
+    this.$axios
+      .get('/home/summary')
+      .then(({ data: { content: { source, link, raw, corpus } } }) => {
+        this.source = source;
+        this.link = link;
+        this.raw = raw;
+        this.corpus = corpus;
+      })
+      .then(() => {
+        const listener = new Listener('home');
+        listener.bind('link-changed', this.linkChanged);
+        listener.bind('raw-changed', this.rawChanged);
+      });
+  },
+  methods: {
+    calculateProgress: (a, b) => (100 / parseFloat(a)) * parseFloat(b),
+    linkChanged({ all, done }) {
+      if (all) this.link.all += all;
+      if (done) this.link.done += done;
+    },
+    rawChanged({ all, done }) {
+      if (all) this.raw.all += all;
+      if (done) this.raw.done += done;
+    },
+    shorten(num) {
+      if (num >= 1000000000) {
+        return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'G';
+      }
+      if (num >= 1000000) {
+        return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+      }
+      if (num >= 1000) {
+        return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+      }
+      return num;
+    }
   }
 };
 </script>
