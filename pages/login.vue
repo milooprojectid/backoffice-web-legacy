@@ -11,10 +11,10 @@
           <div class="m-login__signin">
             <form class="m-login__form m-form" action="">
               <div class="form-group m-form__group">
-                <input class="form-control m-input" type="text" placeholder="Username" name="username">
+                <input v-model="user.username" class="form-control m-input" type="text" placeholder="Username">
               </div>
               <div class="form-group m-form__group">
-                <input class="form-control m-input m-login__form-input--last" type="password" placeholder="Password" name="password">
+                <input v-model="user.password" class="form-control m-input m-login__form-input--last" type="password" placeholder="Password">
               </div>
               <div class="row m-login__form-sub">
                 <div class="col m--align-left m-login__form-left">
@@ -25,19 +25,20 @@
                 </div>
               </div>
               <div class="m-login__form-action">
-                <button id="m_login_signin_submit" class="text-white btn m-btn--gradient-from-warning m-btn--gradient-to-danger m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary btn-block">Sign In</button>
+                <button id="m_login_signin_submit" class="text-white btn m-btn--gradient-from-warning m-btn--gradient-to-danger m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary btn-block" @click.prevent="login">Sign In</button>
               </div>
             </form>
           </div>
         </div>	
       </div>
     </div>
-    <notifications :max="10" group="login" position="bottom center" />		
+    <notifications :max="10" group="auth" position="bottom center" />		
   </div>
 </template>
 
 <script>
 export default {
+  middleware: 'not_authenticated',
   layout: 'blank',
   data: () => ({
     user: {
@@ -50,10 +51,12 @@ export default {
     login() {
       if (this.user.username && this.user.password) {
         this.loading = true;
-        this.$http
+        this.$axios
           .post('/login', this.user)
           .then(res => {
-            this.$store.dispatch('login', res.data.content);
+            setTimeout(() => {
+              this.$store.dispatch('login', res.data.content);
+            }, 2000);
           })
           .catch(err => {
             this.loading = false;
@@ -62,8 +65,8 @@ export default {
               type: 'error',
               title: 'Whoops',
               text: 'invalid credential',
-              group: 'event',
-              width: 900
+              group: 'auth',
+              width: 1500
             });
           });
       }

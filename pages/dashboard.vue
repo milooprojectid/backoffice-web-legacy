@@ -286,6 +286,7 @@
 <script>
 import InfoBox from '~/components/widgets/InfoBox';
 export default {
+  middleware: 'authenticated',
   components: {
     InfoBox
   }
