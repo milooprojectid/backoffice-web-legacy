@@ -85,20 +85,20 @@
                       
               <div class="m-stack__item m-topbar__nav-wrapper">
                 <ul class="m-topbar__nav m-nav m-nav--inline">               
-                  <li class="m-nav__item m-nav__item--info">
+                  <nuxt-link tag="li" to="/settings" class="m-nav__item m-nav__item--info">
                     <span class="m-nav__link">
                       <span class="m-nav__link-icon m-nav__link-icon-alt">
                         <span class="m-nav__link-icon-wrapper"><i class="flaticon-settings"/></span>
                       </span>
                     </span>
-                  </li>  
-                  <li class="m-nav__item m-nav__item--info">
+                  </nuxt-link>  
+                  <nuxt-link tag="li" to="/queue-monitor" class="m-nav__item m-nav__item--info">
                     <span class="m-nav__link">
                       <span class="m-nav__link-icon m-nav__link-icon-alt">
                         <span class="m-nav__link-icon-wrapper"><i class="flaticon-web"/></span>
                       </span>
                     </span>
-                  </li>  
+                  </nuxt-link>  
                   <li class="m-nav__item m-nav__item--info">
                     <span class="m-nav__link">
                       <span class="m-nav__link-icon m-nav__link-icon-alt" @click="logout">
