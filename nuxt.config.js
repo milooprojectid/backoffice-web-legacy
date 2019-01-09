@@ -1,4 +1,4 @@
-const pkg = require('./package')
+const pkg = require('./package');
 
 module.exports = {
   mode: 'spa',
@@ -22,16 +22,33 @@ module.exports = {
     ]
   },
 
-  loading: { color: '#fff' },
+  loading: { color: '#FEAF00' },
 
   css: [
     '@/assets/vendors/vendors.bundle.css',
     '@/assets/vendors/style.bundle.css'
   ],
 
-  plugins: [],
+  plugins: [
+    {
+      src: '~/plugins/persisted',
+      ssr: false
+    },
+    {
+      src: '~/plugins/vue-notification',
+      ssr: false
+    },
+    {
+      src: '~/plugins/sweet-alert',
+      ssr: false
+    },
+    {
+      src: '~/plugins/axios',
+      ssr: false
+    }
+  ],
 
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/dotenv'],
 
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
@@ -50,8 +67,8 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        })
+        });
       }
     }
   }
-}
+};
